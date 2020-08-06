@@ -387,4 +387,45 @@ if(x > 5 && y > 10) {
 }
 
 //Ternary operator
-51.23
+const x = 11;
+
+const color = x > 10 ? 'red' : 'blue';
+
+console.log(color);//If x>10 prints red, if x<=10 prints blue.
+
+//Switches
+const x = 9;
+const color = x > 10 ? 'red' : 'blue';
+
+switch(color) {
+    case 'red':
+        console.log('color is red');
+        break;
+    case 'blue':
+        console.log('color is blue');
+        break;
+    default:
+        console.log('color is not red or blue');
+        break;
+}   //gives different outputs depending on condition.
+
+//Functions
+function addNums(num1, num2) {
+    console.log(num1 + num2);
+}
+addNums(5,4); //calling the function with arguments
+
+//Alternately
+function addNums(num1 = 1, num2 = 2) {
+    console.log(num1 + num2);
+}
+addNums(); //prints 3, as it is using the set values in the parameters.
+//if we use arguments they will overwrite the set values in the parameters
+addNums(3,4); //Prints 7, not 3
+
+//Typically we will not console.log() in a function, we
+//would return a value.
+function addNums(num1, num2) {
+    return num1 + num2;
+}
+console.log(addNums(5,5)); //Prints 10
