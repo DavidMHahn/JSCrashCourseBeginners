@@ -431,4 +431,31 @@ function addNums(num1, num2) {
 console.log(addNums(5,5)); //Prints 10
 
 //Arrow Functions
-56.20
+//Turning the above code into an arrow function
+const addNums = (num1 = 1, num2 = 1) => {
+    return num1 + num2;
+}
+console.log(addNums(5,5)); //Prints 10
+
+//Alternatively
+const addNums = (num1 = 1, num2 = 1) => console.log(num1 + num2);
+
+addNums(5,5); //Prints 10
+
+//if you want to return something, you don't need the return keyword
+const addNums = (num1 = 1, num2 = 1) => num1 + num2;
+
+console.log(addNums(5,5)); //Prints 10
+
+//With only one parameter, you don't need ()
+const addNums = num1 => num1 + 5;
+
+console.log(addNums(5));//Prints 10
+
+//Using with forEach
+
+todos.forEach((todo) => console.log(todo));
+
+//Object Oriented Programming with JS
+//Constructing objects using the constructor function
+59.35
