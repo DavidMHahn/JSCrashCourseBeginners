@@ -457,5 +457,89 @@ console.log(addNums(5));//Prints 10
 todos.forEach((todo) => console.log(todo));
 
 //Object Oriented Programming with JS
-//Constructing objects using the constructor function
-59.35
+//Constructing Objects using the constructor function. 
+
+//constructor functions with prototypes
+function Person(firstName, lastName, dob) { //The Object should start with a Capital
+                                            //letter. Parameters go inside ( ).
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = dob;
+}
+//Instantiate the Object
+const person1 = new Person('John', 'Smith', '04-03-1980');
+console.log(person1);
+console.log(person1.firstName);
+
+//Note: Here date was passed in as a string. But we can turn this
+//into a date Object. (e.g. this.dob = new Date(dob);) this creates a date Object.
+//You can do a bunch of methods on the date Object.
+//console.log(person1.dob.getFullYear()); or .getHours or .getMonth, and so on.
+//You can add methods (i.e.functions for Objects) to the Object.
+function Person(firstName, lastName, dob) {
+this.firstName = firstName;
+this.lastName = lastName;
+this.dob = new Date(dob);
+this.getBirthYear = function() {
+    return this.dob.getFullYear();
+};
+this.getFullName = function() {
+    return `${this.firstName} ${this.lastName}`;
+};
+}
+const person1 = new Person('John', 'Smith', '04-03-1980');
+console.log(person1.getBirthYear()); //Prints 1980
+console.log(person1.getFullName()); //Prints John Smith
+
+//Prototypes - another Object that we can attach methods and properties to.
+//Use then when you may not want all of the methods/function with every Object instance.
+//You can put them under the prototype
+function Person(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+    /*
+    this.getBirthYear = function() {
+       return this.dob.getFullYear();
+    };
+    this.getFullName = function() {
+        return `${this.firstName} ${this.lastName}`;
+    }; 
+    */
+    }
+    Person.prototype.getBirthYear = function() {
+        return this.dob.getFullYear();
+    };
+    Person.prototype.getFullName = function() {
+        return `${this.firstName} ${this.lastName}`;
+    };
+
+//Instantiating Object
+    const person1 = new Person('John', 'Smith', '04-03-1980');
+    console.log(person1.getFullName());
+    console.log(person1);
+
+//constructor functions with ES2015 classes
+//Classes add methods (functions) to the prototype Object
+//but it looks nicer than the previous way above, and it's easier to read and write.
+//Creating a Class in ES2015
+class Person {
+    constructor(firstName, lastName, dob) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = new Date(dob);
+    };
+    getBirthYear() {
+        return this.dob.getFullYear();
+    };
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    };
+}
+//Instantiating
+    const person1 = new Person('John', 'Smith', '04-03-1980');
+    console.log(person1.getFullName());
+    console.log(person1);
+
+//The DOM in JS
+1:10:30
