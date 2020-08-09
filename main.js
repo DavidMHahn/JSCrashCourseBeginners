@@ -542,4 +542,104 @@ class Person {
     console.log(person1);
 
 //The DOM in JS
-1:10:30
+//Selecting things from the DOM
+//Can take HTML elements and put them into variables
+//Single element selectors
+console.log(window); //in the browser is the window object (parent obj of browser)
+//e.g. alert function in JS is actually part of the window object (window.alert)
+//document is part of the window object
+console.log(document.getElementById('my-form')); //logs form element in console
+//Alternativelty
+const form = document.getElementById('my-form'); //old school
+console.log(form); //logs form element in console
+//Newer
+console.log(document.querySelector('.container')); // works a lot like jQuery for selecting single elements.
+//Or
+console.log(document.querySelector('h1')); //only selects first h1 it finds.
+
+//Multiple element selectors
+console.log(document.querySelectorAll('.item'));//can use a class, id, tag, anything
+                                                //selects all list items from HTMLdoc
+                                                //Gives a node list in this case.
+                                                //which we can use array methods on
+
+//Old school terms getElementByClassName, getElementByTagName
+console.log(document.getElementsByClassName('item'));//gives an HTML collection
+                                                     //can't use array methods on this
+                                                     //must manually convert to array
+
+//Looping through item
+const items = document.querySelectorAll('.item');
+items.forEach((item) => console.log(item));//Loops through and grabs each list item
+
+//Manipulating the DOM (user interface)
+const ul = document.querySelectorAll('.items');
+ul.remove(); //removes the entire ul
+
+const ul = document.querySelectorAll('.items');
+ul.lastElementChild.remove();//removed item 3 from the ul
+
+const ul = document.querySelectorAll('.items');
+ul.firstElementChild.textContent = 'Hello';//puts text into the first ul item (1st li)
+
+const ul = document.querySelectorAll('.items');
+ul.children[1].innerText = 'Brad';//takes the second element (index 1).
+
+const ul = document.querySelectorAll('.items');
+ul.lastElementChild.innerHTML = '<h1>Hello</h1>';//can add html dynamically in our ul
+
+//Changing Styles with JS
+const btn = document.querySelectorAll('.btn');
+btn.style.background = 'red'; //can be used to change styles dynamically
+
+//Events
+const btn = document.querySelectorAll('.btn');
+btn.addEventListener('click', (eventparameter) => {
+    eventparam.preventDefault(); //stops the default behavior of the submit button
+                                 //(i.e. submitting a form)
+    console.log('click');
+});
+
+//looking at the event object
+const btn = document.querySelectorAll('.btn');
+btn.addEventListener('click', (eventparameter) => {
+    eventparam.preventDefault(); //stops the default behavior of the submit button
+                                 //(i.e. submitting a form)
+    console.log(eventparameter.target);//gives us the element that the event is on (button)
+});
+
+//Additionally
+const btn = document.querySelectorAll('.btn');
+btn.addEventListener('click', (eventparameter) => {
+    eventparam.preventDefault(); //stops the default behavior of the submit button
+                                 //(i.e. submitting a form)
+    console.log(eventparameter.target.className);//gives us the class (btn/button)
+});
+
+//Click action causing a change to the background color to darker gray.
+const btn = document.querySelectorAll('.btn');
+btn.addEventListener('click', (eventparameter) => {
+    eventparam.preventDefault(); 
+    document.querySelectorAll('#my-form').style.background = '#ccc';
+    document.querySelector('body').classList.add('bg-dark'); //adding class to body
+                                                            //when clicking button
+});
+//Changing text dynamically
+const btn = document.querySelectorAll('.btn');
+btn.addEventListener('click', (eventparameter) => {
+    eventparam.preventDefault(); 
+    document.querySelectorAll('#my-form').style.background = '#ccc';
+    document.querySelector('body').classList.add('bg-dark');
+    document.querySelector('.items').lastElementChild.innerHTML = '<h1>Hello</h1>';
+});
+
+//Other types of events
+const btn = document.querySelectorAll('.btn');
+btn.addEventListener('mouseover', (eventparameter) => { //mouseover event, or mouseout
+    eventparam.preventDefault(); 
+    document.querySelectorAll('#my-form').style.background = '#ccc';
+    document.querySelector('body').classList.add('bg-dark');
+    document.querySelector('.items').lastElementChild.innerHTML = '<h1>Hello</h1>';
+});
+
+// 1.30.43
