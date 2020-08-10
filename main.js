@@ -644,11 +644,11 @@ btn.addEventListener('mouseover', (eventparameter) => { //mouseover event, or mo
 
 //Sample Form Script
 //Getting things from the DOM
-const myForm = document.querySelector('#my-form');
-const nameInput = document.querySelector('#name');
-const emailInput = document.querySelector('#email');
-const msg = document.querySelector('.msg');
-const userList = document.querySelector('#users');
+const myForm = document.querySelector('#my-form'); // pulled from the HTML Doc
+const nameInput = document.querySelector('#name'); //pulled from the HTML Doc
+const emailInput = document.querySelector('#email'); //pulled from the HTML Doc
+const msg = document.querySelector('.msg'); //pulled from the HTML Doc
+const userList = document.querySelector('#users'); //pulled from the HTML Doc
 
 // listen for submit event on form
 myForm.addEventListener('submit', onSubmit);
