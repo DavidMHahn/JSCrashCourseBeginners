@@ -642,4 +642,37 @@ btn.addEventListener('mouseover', (eventparameter) => { //mouseover event, or mo
     document.querySelector('.items').lastElementChild.innerHTML = '<h1>Hello</h1>';
 });
 
-// 1.30.43
+//Sample Form Script
+//Getting things from the DOM
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
+
+// listen for submit event on form
+myForm.addEventListener('submit', onSubmit);
+function onSubmit(event) {
+    event.preventDefault();
+    //console.log(nameInput.value); //testing
+    if(nameInput.value === '' || emailInput.value === '') {
+        //alert('Please enter fields');//remember alert stops your code from running.
+        msg.classList.add('error');
+        msg.innerHTML = 'Please enter all fields';
+        setTimeout(() => msg.remove(), 3000);
+    }
+    else {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
+        // append the li to the ul
+        userList.appendChild(li);
+
+        //clear fields
+        nameInput.value = '';
+        emailInput.value = '';
+    };
+};
+//for an application where you can save the data you need a backend where you are
+//connected to a database. You would send requests from the front end using the Fetch API or AJAX. You could even store in the users browser locally.
+
+//END
